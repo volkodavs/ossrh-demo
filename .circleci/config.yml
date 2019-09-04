@@ -24,10 +24,9 @@ jobs:
           key: nexus-demo-{{ checksum "pom.xml" }}
 
       - run:
-          name: Build Nexus Demo on Java 8
+          name: Deploy Nexus Demo on Java 8
           command: |
-            mvn clean verify
-            mvn surefire-report:report-only
+            mvn clean deploy
 
 workflows:
   version: 2

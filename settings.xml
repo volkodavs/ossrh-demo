@@ -8,19 +8,17 @@
             <username>${env.username}</username>
             <password>${env.OSS_PASSWORD}</password>
         </server>
-        <server>
-            <id>${env.GPG_KEYNAME}</id>
-            <passphrase>${env.GPG_PASSPHRASE}</passphrase>
-        </server>
     </servers>
 
     <profiles>
         <profile>
+            <id>ossrh</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <gpg.keyname>${env.GPG_KEYNAME}</gpg.keyname>
+                <gpg.executable>gpg2</gpg.executable>
+                <gpg.passphrase>${env.PASSPHRASE}</gpg.passphrase>
             </properties>
         </profile>
     </profiles>

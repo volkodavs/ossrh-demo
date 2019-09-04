@@ -26,7 +26,7 @@ jobs:
       - run:
           name: Deploy Nexus Demo on Java 8
           command: |
-            mvn clean deploy
+            mvn -s settings.xml clean deploy
 
 workflows:
   version: 2

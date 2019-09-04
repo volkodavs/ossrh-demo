@@ -7,7 +7,8 @@
     <groupId>com.github.volkodavs</groupId>
     <artifactId>nexus-demo</artifactId>
     <packaging>pom</packaging>
-    <version>0.1.0</version>
+    <version>0.1.0-SNAPSHOT</version>
+    <url>https://github.com/volkodavs/ossrh-demo</url>
 
     <licenses>
         <license>
@@ -16,8 +17,8 @@
         </license>
     </licenses>
     <modules>
-        <module>core</module>
         <module>api</module>
+        <module>core</module>
         <module>stream</module>
     </modules>
 
@@ -29,15 +30,28 @@
             <organizationUrl>https://www.xanaduconsultancy.com</organizationUrl>
         </developer>
     </developers>
+    <!-- Required for pushing tags back to git repo -->
     <scm>
         <url>https://github.com/volkodavs/ossrh-demo</url>
         <connection>scm:git:git@github.com:volkodavs/ossrh-.git</connection>
         <developerConnection>scm:git:git@github.com:volkodavs/ossrh-</developerConnection>
     </scm>
 
+    <!-- Required for publishing artifacts back to OSSRH -->
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+
     <properties>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
@@ -95,7 +109,7 @@
                     <plugin>
                         <groupId>org.sonatype.plugins</groupId>
                         <artifactId>nexus-staging-maven-plugin</artifactId>
-                        <version>1.6.7</version>
+                        <version>1.6.8</version>
                         <extensions>true</extensions>
                         <configuration>
                             <serverId>ossrh</serverId>

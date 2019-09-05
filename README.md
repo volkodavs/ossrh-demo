@@ -18,7 +18,7 @@ Sonatype OSSRH (Open Source Repository Hosting) is a Maven repository that can e
 
 **Recommendation:** you should register with a company account
 
-#### [Create a New Project ticket](https://issues.sonatype.org/secure/CreateIssue.jspa?issuetype=21)
+#### [Create a New Project ticket](https://issues.sonatype.org/secure/CreateIssue.jspa?issuetype=21&pid=10134)
 
 Example: https://issues.sonatype.org/browse/OSSRH-51322
 

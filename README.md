@@ -18,9 +18,6 @@ https://issues.sonatype.org/secure/Signup!default.jspa
 
 Example: https://issues.sonatype.org/browse/OSSRH-51322
 
-<img width="656" alt="jira tiket" src="https://user-images.githubusercontent.com/4140597/64367818-d69a4780-d010-11e9-946e-c52396f1cd29.png">
-
-
 ### 2. Configure POM xml 
 
 ```xml 

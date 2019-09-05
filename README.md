@@ -5,12 +5,20 @@
 
 ## Steps 
 
-### 0. Sign up for Sonatype’s JIRA
-https://issues.sonatype.org/secure/Signup!default.jspa
-
 ### 1. Create a New Project ticket
 
+#### a. Sign up for Sonatype’s JIRA
+Sonatype OSSRH (Open Source Repository Hosting) is a Maven repository that can easily sync with the Maven Central Repository.
+
+**[Sing up](https://issues.sonatype.org/secure/Signup!default.jspa)**
+
+**Recommendation:** you should register with a company account
+
+#### b. Create a New Project ticket
+
 Example: https://issues.sonatype.org/browse/OSSRH-51322
+<img width="656" alt="jira tiket" src="https://user-images.githubusercontent.com/4140597/64367818-d69a4780-d010-11e9-946e-c52396f1cd29.png">
+
 
 ### 2. Configure POM xml 
 

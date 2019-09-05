@@ -6,13 +6,10 @@ jobs:
     working_directory: ~/nexus-demo
 
     environment:
-      # Customize the JVM maximum heap limit
       MAVEN_OPTS: -Xmx3200m
 
     steps:
       - checkout
-
-      # Download and cache dependencies
       - restore_cache:
           key: nexus-demo-{{ checksum "pom.xml" }}
       - run: mvn --fail-never dependency:go-offline || true
@@ -27,6 +24,19 @@ jobs:
           name: Deploy Nexus Demo on Java 8
           command: |
             mvn -s settings.xml clean deploy
+
+  publish-github-release:
+    docker:
+      - image: circleci/golang:1.8
+    steps:
+      - attach_workspace:
+          at: ~/nexus-demo
+      - run:
+          name: "Publish Release on GitHub"
+          command: |
+            go get github.com/tcnksm/ghr
+            VERSION=$(my-binary --version)
+            ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${VERSION} ./artifacts/
 
 workflows:
   version: 2

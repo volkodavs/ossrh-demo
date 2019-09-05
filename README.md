@@ -21,12 +21,111 @@ Example: https://issues.sonatype.org/browse/OSSRH-51322
 ### 2. Configure POM xml 
 
 ```xml 
+...
+<name>${project.groupId}:${project.artifactId}</name>
+<description>Your artifact description</description>
+<url>Link to your page or GitHub</url>
+<licenses>
+  <license>
+    <name>MIT License</name>
+    <url>http://www.opensource.org/licenses/mit-license.php</url>
+  </license>
+</licenses>
+<developers>
+   <developer>
+     <name>Your name</name>
+     <email>Your email</email>
+     <organization>Your company</organization>
+     <organizationUrl>Your company's website</organizationUrl>
+   </developer>
+ </developers>
+ <scm>
+   <url>https://github.com/yourcompany/yourrepo</url>
+   <connection>scm:git:git@github.com:yourcompany/yourrepo.git</connection>
+   <developerConnection>scm:git:git@github.com:yourcompany/yourrepo.git</developerConnection>
+ </scm>
+...
+```
 
+We also need add some maven plugins 
+
+```xml
+...
+<build>
+  <plugins>
+    ...
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>3.0.1</version>
+        <executions>
+            <execution>
+                <id>attach-sources</id>
+                <goals>
+                    <goal>jar</goal>
+                </goals>
+            </execution>
+        </executions>
+    </plugin>
+    ...
+  </plugins>
+</build>
+...
+<profiles>
+  <profile>
+    <id>release</id>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.10.4</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.5</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                          <goals>
+                              <goal>sign</goal>
+                          </goals>
+                      </execution>
+                  </executions>
+              </plugin>
+              <plugin>
+                  <groupId>org.sonatype.plugins</groupId>
+                  <artifactId>nexus-staging-maven-plugin</artifactId>
+                  <version>1.6.7</version>
+                  <extensions>true</extensions>
+                  <configuration>
+                      <serverId>ossrh</serverId>
+                      <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                      <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                  </configuration>
+              </plugin>
+          </plugins>
+      </build>
+  </profile>
+</profiles>
+...
 ```
 
 ### 3. Generate gpg key 
 
-* brew install gpg
+* Make sure you have GPG installed
+`brew install gpg`
+
 * gpg --gen-key
 * gpg --keyserver hkp://ipv4.pool.sks-keyservers.net --send-keys XXXX
 

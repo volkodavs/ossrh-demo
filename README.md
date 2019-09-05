@@ -13,10 +13,8 @@
 
 ### 1. Create a New Project ticket
 
-#### Sign up for Sonatype’s JIRA
+#### [Sign up for Sonatype’s JIRA](https://issues.sonatype.org/secure/Signup!default.jspa)
 Sonatype OSSRH (Open Source Repository Hosting) is a Maven repository that can easily sync with the Maven Central Repository.
-
-https://issues.sonatype.org/secure/Signup!default.jspa
 
 **Recommendation:** you should register with a company account
 

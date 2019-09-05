@@ -3,6 +3,12 @@
 
 # Multi module maven central deployment 
 
+## High level overview
+
+* Create a Sonatype OSSRH account
+* Ensure your library is properly configured
+* Configure CI
+
 ## Steps 
 
 ### 1. Create a New Project ticket

@@ -5,26 +5,26 @@
 
 ## Steps 
 
-### Sign up for Sonatype’s JIRA
+### 0. Sign up for Sonatype’s JIRA
 https://issues.sonatype.org/secure/Signup!default.jspa
 
-### Create a New Project ticket
+### 1. Create a New Project ticket
 
 Example: https://issues.sonatype.org/browse/OSSRH-51322
 
-### Configure POM xml 
+### 2. Configure POM xml 
 
 ```xml 
 
 ```
 
-### Generate gpg key 
+### 3. Generate gpg key 
 
 * brew install gpg
 * gpg --gen-key
 * gpg --keyserver hkp://ipv4.pool.sks-keyservers.net --send-keys XXXX
 
-### Configure maven settings 
+### 4. Configure maven settings 
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -54,7 +54,7 @@ Example: https://issues.sonatype.org/browse/OSSRH-51322
 </settings>
 ```
 
-### Configure CI 
+### 5. Configure CI 
 
 ```yml
 
@@ -91,3 +91,22 @@ workflows:
     jobs:
       - build-java8
 ```
+
+### 6. Setup auto-deploy to github release
+
+```java 
+ publish-github-release:
+    docker:
+      - image: circleci/golang:1.13
+    steps:
+      - checkout
+      - run:
+          name: "Publish Release on GitHub"
+          command: |
+            go get github.com/tcnksm/ghr
+            export VERSION=$(cat ~/project/pom.xml | grep "^    <version>.*</version>$" | awk -F'[><]' '{print $3}')
+            ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${VERSION} ~/project
+
+```
+### 7. Summary
+

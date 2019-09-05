@@ -44,6 +44,9 @@ workflows:
       - publish-github-release:
           requires:
             - build-java8
+          filters:
+            branches:
+              only: /release-.*/
 
 
 

@@ -34,7 +34,7 @@ jobs:
           command: |
             go get github.com/tcnksm/ghr
             export VERSION=$(cat ~/project/pom.xml | grep "^    <version>.*</version>$" | awk -F'[><]' '{print $3}')
-            ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${VERSION} ~/nexus-demo
+            ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${VERSION} ~/project
 
 workflows:
   version: 2

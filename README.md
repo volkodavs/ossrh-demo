@@ -34,7 +34,7 @@ Example: https://issues.sonatype.org/browse/OSSRH-51322
     <servers>
         <server>
             <id>ossrh</id>
-            <username>${env.username}</username>
+            <username>${env.USERNAME}</username>
             <password>${env.OSS_PASSWORD}</password>
         </server>
     </servers>

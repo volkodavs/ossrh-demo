@@ -208,7 +208,7 @@ workflows:
 
 #### Setup environmant variables 
 
-Configure environment variables in circleci, [how to](https://circleci.com/docs/2.0/env-vars/#setting-an-environment-variable-in-a-project)
+Configure environment variables in circleci https://circleci.com/docs/2.0/env-vars/#setting-an-environment-variable-in-a-project
 
 * `OSS_PASSWORD` sonatype username 
 * `USERNAME` sonatype password 

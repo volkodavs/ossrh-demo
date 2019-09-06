@@ -164,7 +164,9 @@ We also need add some maven plugins
 </settings>
 ```
 
-### 5. Configure CI 
+### 5. Configure Circleci configuration 
+
+Create a file `.circleci/config.yml` in your repository
 
 ```yml
 
@@ -204,7 +206,9 @@ workflows:
 
 ### 6. Setup auto-deploy to github release
 
-```java 
+You should e  `.circleci/config.yml` configuration file with: 
+
+```yml 
  publish-github-release:
     docker:
       - image: circleci/golang:1.13

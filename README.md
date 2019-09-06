@@ -96,7 +96,7 @@ We also need add some maven plugins
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
-                <version>1.5</version>
+                <version>1.6</version>
                 <executions>
                     <execution>
                         <id>sign-artifacts</id>
@@ -110,7 +110,7 @@ We also need add some maven plugins
               <plugin>
                   <groupId>org.sonatype.plugins</groupId>
                   <artifactId>nexus-staging-maven-plugin</artifactId>
-                  <version>1.6.7</version>
+                  <version>1.6.8</version>
                   <extensions>true</extensions>
                   <configuration>
                       <serverId>ossrh</serverId>
@@ -127,11 +127,9 @@ We also need add some maven plugins
 
 ### 3. Generate gpg key 
 
-* Make sure you have GPG installed
-`brew install gpg`
-
-* gpg --gen-key
-* gpg --keyserver hkp://ipv4.pool.sks-keyservers.net --send-keys XXXX
+* Make sure you have GPG installed. Run on MacOS `brew install gpg`
+* Generate GPG key: `gpg --gen-key`
+* Distribute your key so that everyone `gpg --keyserver hkp://ipv4.pool.sks-keyservers.net --send-keys YOUR_GPG_KEY`
 
 ### 4. Configure maven settings 
 

@@ -205,7 +205,7 @@ workflows:
       - build-java8
 ```
 
-#### Setup environmant variables 
+#### Setup environment variables 
 
 Configure environment variables in circleci https://circleci.com/docs/2.0/env-vars/#setting-an-environment-variable-in-a-project
 
@@ -232,7 +232,7 @@ If you want to setup github auto-deploy, you should extend  configuration file `
             ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${VERSION} ~/project
 ```
 
-#### Setup environmant variables 
+#### Setup environment variables 
 
 You should add environment variables to circleci
 

@@ -20,8 +20,7 @@ Sonatype OSSRH (Open Source Repository Hosting) is a Maven repository that can e
 
 #### [Create a New Project ticket](https://issues.sonatype.org/secure/CreateIssue.jspa?issuetype=21&pid=10134)
 
-For github group id `io.github.YOUR_GIT_HUB_NAME` you might be asked to create a repository with the name of the ticket to validate that this is your account. 
-Example: https://issues.sonatype.org/browse/OSSRH-51322
+For github group id `io.github.YOUR_GIT_HUB_NAME` you might be asked to create a repository with the name of the ticket to validate that this is your account, example: https://issues.sonatype.org/browse/OSSRH-51322
 
 read more: https://central.sonatype.org/pages/choosing-your-coordinates.html
 

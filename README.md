@@ -131,7 +131,7 @@ We also need add some maven plugins
 ### 3. Generate gpg key 
 
 * Make sure you have GPG installed. Run on MacOS `brew install gpg`
-* Generate GPG key, you will be asked for passphrase. You should note it down. `gpg --gen-key`
+* Generate GPG key, you will be asked for passphrase(you should note it down) `gpg --gen-key`
 * Distribute your key so that everyone `gpg --keyserver hkp://ipv4.pool.sks-keyservers.net --send-keys YOUR_GPG_KEY`
 
 ### 4. Configure maven settings 
@@ -210,12 +210,9 @@ workflows:
 
 Configure environment variables in circleci, [how to](https://circleci.com/docs/2.0/env-vars/#setting-an-environment-variable-in-a-project)
 
-* `CIRCLE_PROJECT_REPONAME`
-* `CIRCLE_PROJECT_USERNAME`
-* `OSS_PASSWORD`
-* `PASSPHRASE`
-* `USERNAME`
-
+* `OSS_PASSWORD` sonatype username 
+* `USERNAME` sonatype password 
+* `PASSPHRASE` GPG passphrase
 
 ### 6. Setup auto-deploy to github release
 
@@ -235,5 +232,10 @@ You should e  `.circleci/config.yml` configuration file with:
             ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${VERSION} ~/project
 
 ```
+
+* `CIRCLE_PROJECT_REPONAME`
+* `CIRCLE_PROJECT_USERNAME`
+* `GITHUB_TOKEN`
+
 ### 7. Summary
 

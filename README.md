@@ -128,7 +128,7 @@ We also need add some maven plugins
 ### 3. Generate gpg key 
 
 * Make sure you have GPG installed. Run on MacOS `brew install gpg`
-* Generate GPG key: `gpg --gen-key`
+* Generate GPG key, you will be asked for passphrase. You should note it down. `gpg --gen-key`
 * Distribute your key so that everyone `gpg --keyserver hkp://ipv4.pool.sks-keyservers.net --send-keys YOUR_GPG_KEY`
 
 ### 4. Configure maven settings 

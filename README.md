@@ -214,7 +214,7 @@ Configure environment variables in circleci, [how to](https://circleci.com/docs/
 * `USERNAME` sonatype password 
 * `PASSPHRASE` GPG passphrase
 
-### 6. Setup auto-deploy to github release
+### 6. Automate GitHub Releases with CircleCI
 
 #### Setup circleci configuration
 If you want to setup github auto-deploy, you should extend  configuration file `.circleci/config.yml` with: 

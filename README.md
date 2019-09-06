@@ -164,9 +164,11 @@ We also need add some maven plugins
 </settings>
 ```
 
-### 5. Configure Circleci configuration 
+### 5. Configure Circleci
 
-Create a file `.circleci/config.yml` in your repository
+#### Setup circleci configuration 
+
+Create a file `.circleci/config.yml`
 
 ```yml
 
@@ -203,6 +205,17 @@ workflows:
     jobs:
       - build-java8
 ```
+
+#### Setup environmant variables 
+
+Configure environment variables in circleci, [how to](https://circleci.com/docs/2.0/env-vars/#setting-an-environment-variable-in-a-project)
+
+* `CIRCLE_PROJECT_REPONAME`
+* `CIRCLE_PROJECT_USERNAME`
+* `OSS_PASSWORD`
+* `PASSPHRASE`
+* `USERNAME`
+
 
 ### 6. Setup auto-deploy to github release
 

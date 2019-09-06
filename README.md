@@ -243,3 +243,4 @@ You should add environment variables to circleci
 
 ### 7. Summary
 
+Hopefully this guide saves you some of the troubles we’ve encountered while setting up our integration with the Maven Central Repository!

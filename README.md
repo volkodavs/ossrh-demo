@@ -1,7 +1,7 @@
 [![CircleCI](https://circleci.com/gh/volkodavs/ossrh-demo.svg?style=svg)](https://circleci.com/gh/volkodavs/ossrh-demo)
 
 
-# Multi module maven central deployment 
+# Guide to automate process uploading artifacts to the Central Repository 
 
 ## High level overview
 

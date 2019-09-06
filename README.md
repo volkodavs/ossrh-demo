@@ -216,7 +216,8 @@ Configure environment variables in circleci, [how to](https://circleci.com/docs/
 
 ### 6. Setup auto-deploy to github release
 
-You should e  `.circleci/config.yml` configuration file with: 
+#### Setup circleci configuration
+If you want to setup github auto-deploy, you should extend  configuration file `.circleci/config.yml` with: 
 
 ```yml 
  publish-github-release:
@@ -230,12 +231,15 @@ You should e  `.circleci/config.yml` configuration file with:
             go get github.com/tcnksm/ghr
             export VERSION=$(cat ~/project/pom.xml | grep "^    <version>.*</version>$" | awk -F'[><]' '{print $3}')
             ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${VERSION} ~/project
-
 ```
 
-* `CIRCLE_PROJECT_REPONAME`
-* `CIRCLE_PROJECT_USERNAME`
-* `GITHUB_TOKEN`
+#### Setup environmant variables 
+
+You should add environment variables to circleci
+
+* `CIRCLE_PROJECT_REPONAME` - project name, for us it's `ossrh-demo`
+* `CIRCLE_PROJECT_USERNAME` - project username, for us it's `volkodavs`
+* `GITHUB_TOKEN` - you should generate personal access token, [read more](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line), with permission: `read:packages, repo, write:packages`
 
 ### 7. Summary
 

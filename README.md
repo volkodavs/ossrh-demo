@@ -209,8 +209,8 @@ workflows:
 
 Configure environment variables in circleci https://circleci.com/docs/2.0/env-vars/#setting-an-environment-variable-in-a-project
 
-* `OSS_PASSWORD` sonatype username 
-* `USERNAME` sonatype password 
+* `OSS_PASSWORD` sonatype password 
+* `USERNAME` sonatype username 
 * `PASSPHRASE` GPG passphrase
 
 ### 6. Automate GitHub Releases with CircleCI
